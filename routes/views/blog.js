@@ -3,6 +3,8 @@ var async = require('async');
 
 exports = module.exports = function (req, res) {
 
+	req.params.category = req.params.category || 'cover';
+
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 
@@ -13,7 +15,7 @@ exports = module.exports = function (req, res) {
 	};
 	locals.data = {
 		posts: [],
-		categories: [],
+		categories: ['cover'],
 	};
 
 	// Load all categories
@@ -79,5 +81,6 @@ exports = module.exports = function (req, res) {
 	});
 
 	// Render the view
-	view.render('blog');
+	view.render('portfolio')
+
 };

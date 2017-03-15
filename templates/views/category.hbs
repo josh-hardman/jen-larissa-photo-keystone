@@ -1,0 +1,39 @@
+
+<div class="gallery">
+
+  {{#if galleries}}
+    {{#with galleries.[0]}}
+      <div
+        class="details-container background parallax"
+        style="background-image:url('{{{cloudinaryUrl heroImage}}}'); margin-top: 70px;"
+        data-img-width="1600"
+        data-img-height="1064"
+        data-diff="100"
+      >
+          <div class="content-a">
+              <div class="content-b">
+                  <h1>{{name}}</h1>
+              </div>
+          </div>
+      </div>
+    {{/with}}
+
+		{{#each galleries}}
+      <a class="image">
+        <figure class="photo-inner">
+          <img src="{{{cloudinaryUrl heroImage}}}" alt="">
+          <div class="photo-overlay">
+            <h3 class="photo-overlay__title">{{{toUpperCase name}}}</h3>
+            <p class="photo-overlay__description">{{{toUpperCase content.extended}}}</p>
+          </div>
+        </figure>
+      </a>
+    {{/each}}
+
+	{{else}}
+	  <h3 class="text-muted">There are no image galleries yet.</h3>
+	{{/if}}
+
+</div>
+
+<script src="/js/parallax.js"></script>

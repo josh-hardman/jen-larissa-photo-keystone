@@ -1,35 +1,35 @@
-<div class="container">
-	<h1>Gallery</h1>
-</div>
-<div class="container">
-	<!-- if galleries -->
-	{{#if galleries}}
+{{#if galleries}}
+  {{#with galleries.[0]}}
+    <div
+      class="details-container background parallax"
+      style="background-image:url('{{{cloudinaryUrl heroImage}}}'); margin-top: 70px;"
+      data-img-width="1600"
+      data-img-height="1064"
+      data-diff="100"
+    >
+        <div class="content-a">
+            <div class="content-b">
+                <h1>test</h1>
+            </div>
+        </div>
+    </div>
+  {{/with}}
+	<div class="gallery">
 		{{#each galleries}}
-		<h2>{{name}}
-			<div class="pull-right text-muted">19th May 2014</div>
-		</h2>
-		<div class="row gallery-images">
-				{{#if heroImage}}
-				<div class="col-sm-4 col-md-4 gallery-image">
-					<img src="{{cloudinaryUrl heroImage width='680' height='680'}}" class="img-rounded">
-				</div>
-				{{/if}}
-				{{#if name}}
-					<h1>{{{content.extended}}}</h1>
-				{{/if}}
-				<div class="col-sm-8 col-md-8">
-					<div class="row">
-						{{#each images}}
-						<div class="col-xs-4 col-sm-4 col-md-3 gallery-image">
-							<img src="{{cloudinaryUrl width='300' height='300'}}" class="img-rounded">
-						</div>
-						{{/each}}
-					</div>
-				</div>
-		</div>
-		{{/each}}
-	{{else}}
-	<!-- else -->
-	<h3 class="text-muted">There are no image galleries yet.</h3>
-	{{/if}}
-</div>
+      <a class="image">
+        <figure class="photo-inner">
+          <img src="{{{cloudinaryUrl heroImage}}}" alt="">
+          <div class="photo-overlay">
+            <h3 class="photo-overlay__title">{{{toUpperCase name}}}</h3>
+            <p class="photo-overlay__description">{{{toUpperCase content.extended}}}</p>
+          </div>
+        </figure>
+      </a>
+  	{{/each}}
+	</div>
+
+{{else}}
+  <h3 class="text-muted">There are no image galleries yet.</h3>
+{{/if}}
+
+<script src="/js/parallax.js"></script>

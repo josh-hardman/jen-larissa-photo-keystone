@@ -88,6 +88,14 @@ module.exports = function () {
 	// input. categories:['tech', 'js']
 	// output. 'Filed Undder <a href="blog/tech">tech</a>, <a href="blog/js">js</a>'
 
+	_helpers.toLowerCase = function( str ) {
+		return str.toLowerCase();
+	}
+
+	_helpers.toUpperCase = function( str ) {
+		return str.toUpperCase();
+	}
+
 	_helpers.categoryList = function (categories, options) {
 		var autolink = _.isString(options.hash.autolink) && options.hash.autolink === 'false' ? false : true;
 		var separator = _.isString(options.hash.separator) ? options.hash.separator : ', ';
