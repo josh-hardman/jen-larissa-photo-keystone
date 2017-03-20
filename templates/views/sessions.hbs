@@ -1,0 +1,12 @@
+<div class="gallery">
+  {{#each data.sessions}}
+    <figure class="photo-inner">
+      <h3>{{{toUpperCase name}}}</h3>
+      <img src="{{{cloudinaryUrl heroImage}}}" alt="">
+      <p>{{{content.extended}}}</p>
+      {{#each images}}
+      <img src="{{{cloudinaryUrl this}}}" alt="">
+      {{/each}}
+    </figure>
+  {{/each}}
+</div>

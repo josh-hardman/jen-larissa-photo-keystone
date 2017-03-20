@@ -88,6 +88,18 @@ module.exports = function () {
 	// input. categories:['tech', 'js']
 	// output. 'Filed Undder <a href="blog/tech">tech</a>, <a href="blog/js">js</a>'
 
+	_helpers.debug = function(value) {
+	  console.log("Current Context");
+	  console.log("====================");
+	  console.log(this);
+
+	  if (value) {
+	    console.log("Value");
+	    console.log("====================");
+	    console.log(value);
+	  }
+	}
+
 	_helpers.toLowerCase = function( str ) {
 		return str.toLowerCase();
 	}

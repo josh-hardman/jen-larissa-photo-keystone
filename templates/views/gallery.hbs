@@ -1,5 +1,5 @@
 {{#if galleries}}
-  {{#with galleries.[0]}}
+  <!-- {{#with galleries.[0]}}
     <div
       class="details-container background parallax"
       style="background-image:url('{{{cloudinaryUrl heroImage}}}'); margin-top: 70px;"
@@ -13,10 +13,10 @@
             </div>
         </div>
     </div>
-  {{/with}}
+  {{/with}} -->
 	<div class="gallery">
 		{{#each galleries}}
-      <a class="image">
+      <a class="image" href="/sessions/{{{toLowerCase key}}}">
         <figure class="photo-inner">
           <img src="{{{cloudinaryUrl heroImage}}}" alt="">
           <div class="photo-overlay">
