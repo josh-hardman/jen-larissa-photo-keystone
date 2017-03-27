@@ -1,91 +1,14 @@
-<!-- <div class="container">
-	<div class="row">
-		<div class="col-sm-8 col-md-9">
-			<h4 class="text-weight-normal">Showing {{ data.posts.results.length}} post.</h4>
-			<div class="blog">
-				{{# each data.posts.results}}
-				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">
-					<h2><a href="{{postUrl slug}}">{{{title}}}</a></h2>
-
-					{{#if image}}<img src="{{{cloudinaryUrl image width=160 height=160 crop='fit' }}}" class="img pull-right">{{/if}}
-					<p>{{{content.brief}}}</p>
-					{{#if content.extended}}<p class="read-more"><a href="{{postUrl slug}}">Read more...</a></p>{{/if}}
-				</div>
-				{{/each}}
-			</div>
-		</div>
-		<div class="col-sm-4 col-md-3">
-			<h2>Categories</h2>
-			<div style="margin-top: 70px;" class="list-group">
-				<a href="/blog" class="active list-group-item">All Categories</a>
-				{{# each data.categories }}
-				<a href="{{categoryUrl key}}" class="false list-group-item">{{name}}</a>
-				{{/each}}
-			</div>
-		</div>
-	</div>
-	{{>pagination}}
-</div> -->
-
 {{>navbar}}
-
-{{# each data.posts.results}}
-
-	<div id="{{{title}}}" class="container background parallax" style="background-image:url({{{cloudinaryUrl image}}});" data-img-width="1600" data-img-height="1064" data-diff="100">
-			<div class="content-a">
-					<div class="content-b">
-						<a href="/portfolio/{{{toLowerCase title}}}">
-							<h1>{{{toUpperCase title}}}</h1>
-						</a>
-					</div>
-			</div>
-			<div class="scroll-container">
-				<a class="scroll-anchor" href="#weddings">
-					<span></span>
-					<p class="center scroll-text">SCROLL DOWN</p>
-				</a>
-			</div>
-	</div>
-<!--
-	<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">
-		<h2><a href="{{postUrl slug}}">{{{title}}}</a></h2>
-
-		{{#if image}}<img src="{{{cloudinaryUrl image width=160 height=160 crop='fit' }}}" class="img pull-right">{{/if}}
-		<p>{{{content.brief}}}</p>
-		{{#if content.extended}}<p class="read-more"><a href="{{postUrl slug}}">Read more...</a></p>{{/if}}
-	</div> -->
-
-
-{{/each}}
-
-<!-- <div id="engagements" class="container background parallax" style="background-image:url('/img/engagements_cover.jpg');" data-img-width="1600" data-img-height="1064" data-diff="100">
-
 		<div class="content-a">
 				<div class="content-b">
-						<a href="/portfolio/engagements">
-							<h1>ENGAGEMENTS</h1>
-						</a>
 						<div class="side-bar-nav">
-							<a href="#engagements">
-								<div class="js-side-btn js-engagements btn-round">
-									<span class="title">ENGAGEMENTS</span>
-								</div>
-							</a>
-							<a href="#bridals">
-								<div class="js-side-btn js-bridals btn-round">
-									<span class="title">BRIDALS</span>
-								</div>
-							</a>
-							<a href="#weddings">
-								<div class="js-side-btn js-weddings btn-round">
-									<span class="title">WEDDINGS</span>
-								</div>
-							</a>
-							<a href="#portraits">
-								<div class="js-side-btn js-portraits btn-round">
-									<span class="title">PORTRAITS</span>
-								</div>
-							</a>
+							{{# each data.posts.results}}
+								<a href="#{{{toLowerCase title}}}">
+									<div class="js-side-btn js-engagements btn-round">
+										<span class="title">{{{toUpperCase title}}}</span>
+									</div>
+								</a>
+							{{/each}}
 						</div>
 				</div>
 		</div>
@@ -96,51 +19,24 @@
 			</a>
 
 		</div>
-</div>
-<div id="bridals" class="container background parallax" style="background-image:url('/img/bridals_cover.jpg');" data-img-width="1600" data-img-height="1064" data-diff="100">
-		<div class="content-a">
-				<div class="content-b">
-					<a href="/portfolio/bridals">
-						<h1>BRIDALS</h1>
-					</a>
-				</div>
-		</div>
-		<div class="scroll-container">
-			<a class="scroll-anchor" href="#weddings">
-				<span></span>
-				<p class="center scroll-text">SCROLL DOWN</p>
-			</a>
-		</div>
-</div>
-<div id="weddings" class="container background parallax" style="background-image:url('/img/weddings_cover.jpg');" data-img-width="1600" data-img-height="1064" data-diff="100">
-		<div class="content-a">
-				<div class="content-b">
-					<a href="/portfolio/weddings">
-						<h1>WEDDINGS</h1>
-					</a>
-				</div>
-		</div>
-		<div class="scroll-container">
-			<a class="scroll-anchor" href="#portraits">
-				<span></span>
-				<p class="center scroll-text">SCROLL DOWN</p>
-			</a>
-		</div>
-</div>
-<div id="portraits" class="container background parallax" style="background-image:url('/img/portraits_cover.jpg');" data-img-width="1600" data-img-height="1064" data-diff="100">
-		<div class="content-a">
-				<div class="content-b">
-					<a href="/portfolio/portraits">
-						<h1>PORTRAITS</h1>
-					</a>
-				</div>
-		</div>
-		<div class="scroll-container up">
-			<a class="scroll-anchor" href="#engagements">
-				<span class="upArrow"></span>
-				<p class="center scroll-text">SCROLL TOP</p>
-			</a>
-		</div>
-</div> -->
+
+{{# each data.posts.results}}
+	<div id="{{{title}}}" class="container background parallax" style="background-image:url({{{cloudinaryUrl image}}});" data-img-width="1600" data-img-height="1064" data-diff="100">
+			<div class="content-a category-title">
+					<div class="content-b">
+						<a href="/portfolio/{{{toLowerCase title}}}">
+							<h1 class="center">{{{toUpperCase title}}}</h1>
+						</a>
+					</div>
+			</div>
+			<div class="scroll-container">
+				<a class="scroll-anchor" href="#weddings">
+					<span></span>
+					<p class="center scroll-text">SCROLL DOWN</p>
+				</a>
+			</div>
+	</div>
+{{/each}}
+
 <script src="/js/portfolio.js"></script>
 <script src="/js/parallax.js"></script>

@@ -1,0 +1,41 @@
+<!-- {{>navbar}}
+
+<div class="gallery">
+  {{#each data.sessions}}
+    <figure class="photo-inner">
+      <h3>{{{toUpperCase name}}}</h3>
+      <img src="{{{cloudinaryUrl heroImage}}}" alt="">
+      <p>{{{content.extended}}}</p>
+      {{#each images}}
+      <img src="{{{cloudinaryUrl this}}}" alt="">
+      {{/each}}
+    </figure>
+  {{/each}}
+</div> -->
+
+
+{{>navbar margin=true}}
+
+<div class="blog">
+  <div class="blog__header">
+    <p>March 18, 2017</p>
+    <h3>Aly and Matt, Boneville Salt Flats Engagement Session</h3>
+    <p>I'll forever advocate for the Bonneville Salt Flats for engagements sessions. The most gorgeous of backdrops, while still simplistic enough to not dract from you and your lover. Aly and Matt are one of those couples where their love is so palpable- and their session reflected just that.</p>
+  </div>
+</div>
+
+<div class="blog">
+  <div class="blog__images">
+    <div class="blog__img">
+      <img  src="/img/portraits_cover-portrait.jpg" alt="">
+    </div>
+    <div class="blog__img">
+      <img  src="/img/portraits_cover-portrait.jpg" alt="">
+    </div>
+    <div class="blog__img">
+      <img  src="/img/bridals_cover.jpg" alt="">
+    </div>
+  </div>
+</div>
+
+<script src="/js/blog.js"></script>

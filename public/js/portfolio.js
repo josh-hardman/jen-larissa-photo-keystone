@@ -27,8 +27,11 @@ var setActiveSideBarSection = function() {
 
 $(document).ready(function(){
 
+  console.log('ready')
+
   // set up smooth scrolling for any anchor tags
   $("a").on('click', function(event) {
+    console.log('click')
     if (this.hash !== "") {
       event.preventDefault();
       var hash = this.hash;

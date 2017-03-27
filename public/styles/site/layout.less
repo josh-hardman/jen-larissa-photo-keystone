@@ -1,7 +1,7 @@
 body{
   margin: 0;
   /*background: url(/img/blur_landing_background.jpg) no-repeat 55% 0%;*/
-  background-color: rgb(50,50,50);
+  // background-color: rgb(50,50,50);
 }
 
 a {
@@ -492,7 +492,6 @@ h1{
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 70px;
   margin-left: -5px;
   margin-right: -5px;
 }
@@ -581,4 +580,41 @@ img {
   text-align: center;
   font-size: 13px;
   padding-top: 100px;
+}
+
+.category-title {
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.nav-margin {
+  margin-bottom: 65px;
+  position: relative;
+}
+
+.blog {
+  border: 1px solid gray;
+  padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+  margin: 100px 0;
+  justify-content: center;
+  &__header {
+    text-align: center;
+    width: 40%;
+  }
+  &__images {
+   display: flex;
+   flex-wrap: wrap;
+  }
+  &__img {
+    width: 50%;
+    &--portrait {
+      width: 50%;
+    }
+    &--landscape {
+      width: 100%
+    }
+  }
 }
