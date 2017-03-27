@@ -1,41 +1,34 @@
 var keystone = require('keystone');
+var ObjectID = require('mongodb').ObjectID;
 
 exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
+	var key = req.params.session;
 
 	// Set locals
-	locals.section = 'blog';
-	locals.filters = {
-		post: req.params.post,
-	};
-	locals.data = {
-		posts: [],
+	locals.section = 'gallery';
+
+  var Gallery = keystone.list('Gallery');
+
+  locals.data = {
+		sessions: []
 	};
 
-	// Load the current post
+
+  // Load other posts
 	view.on('init', function (next) {
 
-		var q = keystone.list('Post').model.findOne({
-			state: 'published',
-			slug: locals.filters.post,
-		}).populate('author categories');
-
-		q.exec(function (err, result) {
-			locals.data.post = result;
-			next(err);
-		});
-
-	});
-
-	// Load other posts
-	view.on('init', function (next) {
-
-		var q = keystone.list('Post').model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
+		var q = keystone.list('Gallery').model.find(
+      {
+        key: key
+      }
+    );
 
 		q.exec(function (err, results) {
-			locals.data.posts = results;
+      console.log(results);
+			locals.data.sessions = results;
 			next(err);
 		});
 
@@ -43,4 +36,26 @@ exports = module.exports = function (req, res) {
 
 	// Render the view
 	view.render('post');
+  //
+	// Gallery.model.find()
+	// 	.where('key', key)
+  //   .exec(function(err, session) {
+  //
+  //     console.log(session);
+  //
+	// 		// var id = category[0]._id;
+	// 		// console.log(id);
+	// 		view.query('galleries', keystone.list('Gallery').model.find(
+	// 			// {
+	// 			// 	categories: ObjectID(id)
+	// 			// }
+	// 		).sort('sortOrder'));
+	// 		view.render('sessions');
+  //   });
+
+	// Load the galleries by sortOrder
+
+
+	// Render the view
+
 };

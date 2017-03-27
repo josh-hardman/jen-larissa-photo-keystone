@@ -1,0 +1,23 @@
+<div
+  class="details-container background parallax"
+  {{#if url}}
+    style="background-image:url({{url}}); margin-top: 10px; margin-bottom: 70px; width: 100%;"
+  {{else}}
+    style="background-image:url('/img/landing_background.jpg'); margin-top: 10px; margin-bottom: 70px; width: 100%;"
+  {{/if}}
+  data-img-width="1600"
+  data-img-height="1064"
+  data-diff="100"
+>
+    <div class="content-a category-title">
+        <div class="content-b">
+          {{#if title}}
+            <h1>{{title}}</h1>
+          {{else}}
+            <h1>PARALAX</h1>
+          {{/if}}
+        </div>
+    </div>
+</div>
+
+<script src="/js/parallax.js"></script>
