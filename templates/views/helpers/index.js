@@ -108,6 +108,10 @@ module.exports = function () {
 		return str.toUpperCase();
 	}
 
+	_helpers.getCurrentYear = function() {
+		return new Date().getFullYear();
+	}
+
 	_helpers.categoryList = function (categories, options) {
 		var autolink = _.isString(options.hash.autolink) && options.hash.autolink === 'false' ? false : true;
 		var separator = _.isString(options.hash.separator) ? options.hash.separator : ', ';

@@ -12,18 +12,24 @@ exports = module.exports = function (req, res) {
 	// Set locals
 	locals.section = 'gallery';
 
+
   var PostCategory = keystone.list('PostCategory');
 
 	PostCategory.model.find()
 		.where('name', categoryName)
     .exec(function(err, category) {
-			var id = category[0]._id;
-			view.query('galleries', keystone.list('Gallery').model.find(
-				{
-					categories: ObjectID(id)
-				}
-			).sort('sortOrder'));
-			view.render('category');
+			if( category[0] ) {
+				var id = category[0]._id;
+				view.query('galleries', keystone.list('Gallery').model.find(
+					{
+						categories: ObjectID(id)
+					}
+				).sort('sortOrder'));
+				view.render('category');
+			} else {
+				res.status(404).send(keystone.wrapHTMLError('Sorry, no page could be found at this address (404)'));
+			}
+
     });
 
 	// Load the galleries by sortOrder

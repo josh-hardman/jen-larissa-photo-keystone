@@ -1,41 +1,25 @@
-<!-- {{>navbar}}
-
-<div class="gallery">
-  {{#each data.sessions}}
-    <figure class="photo-inner">
-      <h3>{{{toUpperCase name}}}</h3>
-      <img src="{{{cloudinaryUrl heroImage}}}" alt="">
-      <p>{{{content.extended}}}</p>
-      {{#each images}}
-      <img src="{{{cloudinaryUrl this}}}" alt="">
-      {{/each}}
-    </figure>
-  {{/each}}
-</div> -->
-
-
 {{>navbar margin=true}}
 
-<div class="blog">
-  <div class="blog__header">
-    <p>March 18, 2017</p>
-    <h3>Aly and Matt, Boneville Salt Flats Engagement Session</h3>
-    <p>I'll forever advocate for the Bonneville Salt Flats for engagements sessions. The most gorgeous of backdrops, while still simplistic enough to not dract from you and your lover. Aly and Matt are one of those couples where their love is so palpable- and their session reflected just that.</p>
-  </div>
+<div class="gallery">
+
+    {{>paralax title='BLOG'}}
+
+		{{#each data.sessions}}
+      <a class="image" href="/blog/{{{toLowerCase key}}}">
+        <figure class="photo-inner">
+          <img src="{{{cloudinaryUrl heroImage}}}" alt="">
+          <div class="photo-overlay">
+            {{#if content.extended}}
+              <h3 class="photo-overlay__title">'{{{toUpperCase name}}}'</h3>
+            {{/if}}
+            {{#if content.extended}}
+              <p class="photo-overlay__description">{{{toUpperCase content.brief}}}</p>
+            {{/if}}
+          </div>
+        </figure>
+      </a>
+    {{/each}}
+
 </div>
 
-<div class="blog">
-  <div class="blog__images">
-    <div class="blog__img">
-      <img class="blog__img__border" src="/img/portraits_cover-portrait.jpg" alt="">
-    </div>
-    <div class="blog__img">
-      <img class="blog__img__border" src="/img/portraits_cover-portrait.jpg" alt="">
-    </div>
-    <div class="blog__img">
-      <img class="blog__img__border" src="/img/bridals_cover.jpg" alt="">
-    </div>
-  </div>
-</div>
-
-<script src="/js/blog.js"></script>
+{{>footer}}

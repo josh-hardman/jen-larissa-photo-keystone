@@ -1,1 +1,21 @@
-<h1>About Page</h1>
+{{>navbar margin=true}}
+
+{{>paralax title='about me'}}
+
+<div class="about">
+  <div class="about__container">
+    {{#if posts}}
+  		{{#with posts.[0]}}
+        <div class="about__container__text">
+          <h2 style="text-align: center;">{{title}}</h2>
+  				{{{content.extended}}}
+        </div>
+        <div class="about__container__image">
+          <img src="{{{cloudinaryUrl image}}}" />
+        </div>
+      {{/with}}
+    {{/if}}
+  </div>
+</div>
+
+{{>footer}}

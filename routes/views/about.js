@@ -1,4 +1,5 @@
 var keystone = require('keystone');
+var ObjectID = require('mongodb').ObjectID;
 
 exports = module.exports = function (req, res) {
 
@@ -9,6 +10,17 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = 'home';
 
-	// Render the view
-	view.render('about');
+	var PostCategory = keystone.list('PostCategory');
+
+	PostCategory.model.find()
+		.where('name', 'about')
+    .exec(function(err, category) {
+			var id = category[0]._id;
+			view.query('posts', keystone.list('Post').model.find(
+				{
+					categories: ObjectID(id)
+				}
+			).sort('sortOrder'));
+			view.render('about');
+    });
 };

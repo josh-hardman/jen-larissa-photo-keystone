@@ -1,10 +1,111 @@
-
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 
 {{>navbar margin=true}}
 
 {{>paralax url='/img/blur_landing_background.jpg' title='CONTACT'}}
+<div class="contact">
+	{{#if posts}}
+		{{#with posts.[0]}}
+			<div class="contact__container">
+				<h2 style="text-align: center;">{{title}}</h2>
+				{{{content.extended}}}
+				<div class="contact__container__sub">
+						<div class="contact__container__sub__form">
+							{{#if ../enquirySubmitted}}
+								<h3>Thanks for getting in touch!</h3>
+							{{else}}
+								<form method="post">
+									<ul class="form-style-1">
+											<input type="hidden" name="action" value="contact">
+											<div class="form-group {{#if validationErrors.name}}has-error{{/if}}">
+												<li>
+													<label>Full Name <span class="required">*</span></label>
+													<input type="text" name="name.full" class="field-long" value="{{formData.[name.full]}}" required>
+												</li>
+											</div>
+											<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
+												<li>
+										        <label>Email <span class="required">*</span></label>
+										        <input type="email" name="email" class="field-long" value="{{formData.email}}" required>
+										    </li>
+											</div>
+											<div class="form-group">
+												<li>
+													<label>Phone</label>
+													<input type="text" name="phone" placeholder="(optional)" class="field-long" value="{{formData.phone}}">
+												</li>
+											</div>
+											<div class="form-group {{#if validationErrors.enquiryType}}has-error{{/if}}">
+										    <li>
+										        <label>What are you contacting us about?</label>
+										        <select name="enquiryType" class="field-select">
+															{{#each enquiryTypes}}
+																<option value="{{value}}">{{label}}</option>
+															{{/each}}
+										        </select>
+										    </li>
+											</div>
+									    <li>
+									        <label>Your Message <span class="required">*</span></label>
+									        <textarea name="message" class="field-long field-textarea" required>{{formData.message}}</textarea>
+									    </li>
+									    <li>
+									        <input type="submit" value="Submit" />
+									    </li>
+									</ul>
+								</form>
+							{{/if}}
 
-<div class="container">
+
+<!--
+
+
+							<form method="post">
+								<input type="hidden" name="action" value="contact">
+								<div class="form-group {{#if validationErrors.name}}has-error{{/if}}">
+									<label>Name</label>
+									<input type="text" name="name.full"  class="form-control" value="{{formData.[name.full]}}" required>
+								</div>
+								<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
+									<label>Email</label>
+									<input type="email" name="email" class="form-control" value="{{formData.email}}" required>
+								</div>
+								<div class="form-group">
+									<label>Phone</label>
+									<input type="text" name="phone" placeholder="(optional)" class="form-control" value="{{formData.phone}}">
+								</div>
+								<div class="form-group {{#if validationErrors.enquiryType}}has-error{{/if}}">
+									<label>What are you contacting us about?</label>
+									<select name="enquiryType" class="form-control">
+										<option value="">(select one)</option>
+										{{#each enquiryTypes}}
+										<option value="{{value}}">{{label}}</option>
+										{{/each}}
+									</select>
+								</div>
+								<div class="form-group {{#if validationErrors.message}}has-error{{/if}} ">
+									<label>Message</label>
+									<textarea name="message" placeholder="Leave us a message..." rows="4" class="form-control">{{formData.message}}</textarea>
+								</div>
+								<div class="form-actions">
+									<button type="submit" class="btn btn-primary">Send</button>
+								</div>
+							</form> -->
+					</div>
+					<div class="contact__container__sub__image">
+							<img src="{{{cloudinaryUrl image}}}" />
+					</div>
+				</div>
+			</div>
+		{{/with}}
+	{{/if}}
+</div>
+
+{{>footer}}
+
+
+
+<!-- <div class="container">
 	<h1>Contact Us</h1>
 </div>
 <div class="container">
@@ -47,4 +148,4 @@
 			{{/if}}
 		</div>
 	</div>
-</div>
+</div> -->

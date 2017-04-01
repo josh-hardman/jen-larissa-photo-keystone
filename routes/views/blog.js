@@ -20,14 +20,10 @@ exports = module.exports = function (req, res) {
   // Load other posts
 	view.on('init', function (next) {
 
-		var q = keystone.list('Gallery').model.find(
-      {
-        key: key
-      }
-    );
+		var q = keystone.list('Gallery').model.find();
 
 		q.exec(function (err, results) {
-      console.log(results);
+			console.log(results)
 			locals.data.sessions = results;
 			next(err);
 		});

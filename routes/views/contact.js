@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var Enquiry = keystone.list('Enquiry');
+var ObjectID = require('mongodb').ObjectID;
 
 exports = module.exports = function (req, res) {
 
@@ -33,5 +34,17 @@ exports = module.exports = function (req, res) {
 		});
 	});
 
-	view.render('contact');
+	var PostCategory = keystone.list('PostCategory');
+
+	PostCategory.model.find()
+		.where('name', 'contact')
+    .exec(function(err, category) {
+			var id = category[0]._id;
+			view.query('posts', keystone.list('Post').model.find(
+				{
+					categories: ObjectID(id)
+				}
+			).sort('sortOrder'));
+			view.render('contact');
+    });
 };
