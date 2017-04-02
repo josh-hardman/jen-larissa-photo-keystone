@@ -3,13 +3,32 @@
 {{else}}
   <nav class="frame-S-nav menu-B">
 {{/if}}
-    <div class="menu-S-logo">
-        <img class="logo-B" src="/img/jen_larissa-black.png" alt="">
+    <div class="full-nav">
+      <div class="menu-S-logo">
+          <img class="logo-B" src="/img/jen_larissa-black.png" alt="">
+      </div>
+      <div class="menu-S-nav">
+        <a href="/contact" class="menu-S-option navlink-B">CONTACT</a>
+        <a href="/about" class="menu-S-option navlink-B">ABOUT</a>
+        <a href="/blog" class="menu-S-option navlink-B">BLOG</a>
+        <a href="/portfolio" class="menu-S-option navlink-B">PORTFOLIO</a>
+      </div>
     </div>
-    <div class="menu-S-nav">
-      <a href="/contact" class="menu-S-option navlink-B">CONTACT</a>
-      <a href="/about" class="menu-S-option navlink-B">ABOUT</a>
-      <a href="/blog" class="menu-S-option navlink-B">BLOG</a>
-      <a href="/portfolio" class="menu-S-option navlink-B">PORTFOLIO</a>
+    <div class="mobile-nav">
+      <div class="nav-toggle">
+        <div class="nav-toggle__bar"></div>
+        <div class="nav-toggle__bar"></div>
+        <div class="nav-toggle__bar"></div>
+      </div>
+      <div class="mobile-nav__background">
+        <div class="mobile-nav__list">
+          <a href="/contact"  class="mobile-nav__list__item">CONTACT</a>
+          <a href="/about"  class="mobile-nav__list__item">ABOUT</a>
+          <a href="/blog"  class="mobile-nav__list__item">BLOG</a>
+          <a href="/portfolio"  class="mobile-nav__list__item">PORTFOLIO</a>
+        </div>
+      </div>
     </div>
 </nav>
+
+<script src="/js/nav.js"></script>

@@ -1,3 +1,5 @@
+var preLoadAssets = document.currentScript.getAttribute('data-asset-urls'); //1
+
 document.body.classList.add("animate-in");
 
 window.addEventListener("beforeunload", function () {
@@ -20,9 +22,11 @@ var performAnimation = function(){
 }
 
 var preloadPortfolioAssets = function(){
-  $('body').append('<img src="/img/engagements_cover.jpg" alt="Book" id="bg" style="display:none;"/>');
-  $('body').append('<img src="/img/bridals_cover.jpg" alt="Book" id="bg" style="display:none;"/>');
-  $('body').append('<img src="/img/weddings_cover.jpg" alt="Book" id="bg" style="display:none;"/>');
+  if(preLoadAssets) {
+    preLoadAssets.map( function(assetUrl) {
+      $('body').append('<img src="' + assetUrl + '" alt="Book" id="bg" style="display:none;"/>');
+    })
+  }
 }
 
 var imgLoaded = false;
