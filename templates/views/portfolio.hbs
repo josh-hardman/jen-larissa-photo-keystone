@@ -3,8 +3,8 @@
 			<div class="content-b">
 					<div class="side-bar-nav">
 						{{# each data.posts.results}}
-							<a href="#{{{toLowerCase title}}}">
-								<div class="js-side-btn js-engagements btn-round">
+							<a href="#{{{slug}}}">
+								<div class="js-side-btn js-{{{slug}}} btn-round">
 									<span class="title">{{{toUpperCase title}}}</span>
 								</div>
 							</a>
@@ -20,21 +20,30 @@
 
 	</div>
 
-	{{# each data.posts.results}}
-		<div id="{{{title}}}" class="container background parallax" style="background-image:url({{{cloudinaryUrl image}}});" data-img-width="1600" data-img-height="1064" data-diff="100">
+	{{#each data.posts.results}}
+		<div id="{{{slug}}}" class="container background parallax" style="background: url({{{cloudinaryUrl image}}}) no-repeat 45% 0%;" data-img-width="1600" data-img-height="1064" data-diff="100">
 				<div class="content-a category-title">
 						<div class="content-b">
-							<a href="/portfolio/{{{toLowerCase title}}}">
+							<a href="/portfolio/{{{slug}}}">
 								<h1 class="center">{{{toUpperCase title}}}</h1>
 							</a>
 						</div>
 				</div>
-				<div class="scroll-container">
-					<a class="scroll-anchor" href="#weddings">
-						<span></span>
-						<p class="center scroll-text">SCROLL DOWN</p>
-					</a>
-				</div>
+				{{#if @last}}
+					<div class="scroll-container up">
+						<a class="scroll-anchor" href="#engagements">
+							<span class="upArrow"></span>
+							<p class="center scroll-text">SCROLL TOP</p>
+						</a>
+					</div>
+				 {{else}}
+					 <div class="scroll-container">
+						 <a class="scroll-anchor" href="#{{getNextSlug ../data.posts.results @index}}">
+							 <span></span>
+							 <p class="center scroll-text">SCROLL DOWN</p>
+						 </a>
+					 </div>
+				 {{/if}}
 		</div>
 	{{/each}}
 

@@ -108,6 +108,24 @@ module.exports = function () {
 		return str.toUpperCase();
 	}
 
+	_helpers.math = function(lvalue, operator, rvalue, options) {
+    lvalue = parseFloat(lvalue);
+    rvalue = parseFloat(rvalue);
+
+    return {
+        "+": lvalue + rvalue,
+        "-": lvalue - rvalue,
+        "*": lvalue * rvalue,
+        "/": lvalue / rvalue,
+        "%": lvalue % rvalue
+    }[operator];
+	}
+
+	_helpers.getNextSlug = function( ref, index ) {
+		index++
+		return ref[index] ? ref[index].slug : {}
+	}
+
 	_helpers.getCurrentYear = function() {
 		return new Date().getFullYear();
 	}
