@@ -1,16 +1,15 @@
 {{>navbar margin=true}}
 
+{{>paralax title='BLOG'}}
+
 <div class="gallery">
-
-    {{>paralax title='BLOG'}}
-
 		{{#each data.sessions}}
       <a class="image" href="/blog/{{{toLowerCase key}}}">
         <figure class="photo-inner">
           <img src="{{{cloudinaryUrl heroImage}}}" alt="">
           <div class="photo-overlay">
             {{#if content.extended}}
-              <h3 class="photo-overlay__title">'{{{toUpperCase name}}}'</h3>
+              <h3 class="photo-overlay__title">{{{toUpperCase name}}}</h3>
             {{/if}}
             {{#if content.extended}}
               <p class="photo-overlay__description">{{{toUpperCase content.brief}}}</p>
@@ -19,7 +18,6 @@
         </figure>
       </a>
     {{/each}}
-
 </div>
 
 {{>footer}}
