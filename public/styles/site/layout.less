@@ -445,6 +445,24 @@ h1{
   overflow: hidden;
 }
 
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #F4F4F4;
+  margin-top: 70px;
+  padding: 20px;
+  &__text {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  &__icon-bar {
+    width: 100%;
+  }
+}
+
 .photo-inner {
   display: flex;
   align-items: center;
@@ -463,40 +481,48 @@ h1{
   display: flex;
   flex-direction: column;
   transition: all .6s;
+  &__title {
+    flex:1;
+    color: black;
+  }
+  &__description {
+    flex:2;
+    color: black;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
-.image:hover .photo-overlay {
-  background-color: rgba(250,250,250,.6);
-  opacity: 1;
-  cursor: pointer;
-}
-
-.photo-overlay__title {
-  flex:1;
-  color: black;
-}
-
-.photo-overlay__description {
-  flex:2;
-  color: black;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 180px;
-  background-color: #F4F4F4;
-  margin-top: 70px;
-}
 
 .gallery {
   display: flex;
   flex-wrap: wrap;
   margin-left: -5px;
   margin-right: -5px;
+  &__image {
+    display: inline-block;
+    margin-bottom: 8px;
+    width: calc(100%);
+    text-decoration: none;
+    color: black;
+    :nth-of-type(2n) {
+      margin-right: 0;
+    }
+    @media screen and (min-width: 35em) {
+      width: calc(50%);
+    }
+    @media screen and (min-width: 55em) {
+      width: calc(33.333%);
+    }
+    :hover img {
+      transform: scale(1.015);
+    }
+    :hover .photo-overlay {
+      background-color: rgba(250,250,250,.6);
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
 }
 
 /*.image {
@@ -507,52 +533,6 @@ h1{
   text-decoration: none;
   color: black;
 }*/
-
-.image {
-  display: inline-block;
-  margin-bottom: 8px;
-  width: calc(100%);
-  text-decoration: none;
-  color: black;
-}
-
-.image:nth-of-type(2n) {
-  margin-right: 0;
-}
-
-@media screen and (min-width: 35em) {
-  .image {
-    width: calc(50%);
-  }
-/*
-  .photo:nth-of-type(2n+1) {
-    padding: 40px;
-  }*/
-}
-
-@media screen and (min-width: 55em) {
-  .image {
-    width: calc(33.333%);
-  }
-}
-/*
-@media screen and (min-width: 50em) {
-  .image {
-    width: calc(25% - 6px);
-  }
-
-  .image:nth-of-type(2n) {
-    margin-right: 8px;
-  }
-
-  .image:nth-of-type(4n) {
-    margin-right: 0;
-  }
-}*/
-
-.image:hover img {
-  transform: scale(1.015);
-}
 
 figure {
   margin: 0;
@@ -631,14 +611,22 @@ img {
   display: flex;
   justify-content: center;
   &__container {
-    width: 50%;
+    width: 85%;
+    @media (min-width: 720px) {
+      width: 70%;
+    }
+    @media (min-width: 1000px) {
+      width: 60%;
+    }
     &__sub {
       display: flex;
       &__form {
-        width: 50%;
+        // width: 50%;
+        width: 100%;
         display: flex;
       }
       &__image {
+        display: none;
         width: 50%;
       }
     }
@@ -651,9 +639,13 @@ img {
   &__container {
     width: 80%;
     display: flex;
+    @media (min-width: 900px) {
+      width: 70%;
+    }
     &__text {
       padding: 20px;
-      width: 50%;
+      // width: 50%;
+      width: 100%;
     }
     &__image {
       padding-left: 5%;
@@ -669,7 +661,8 @@ img {
     margin:10px auto;
     max-width: 400px;
     padding: 20px 12px 10px 20px;
-    font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font: 13px;
+
 }
 .form-style-1 li {
     padding: 0;
@@ -681,7 +674,6 @@ img {
     margin:0 0 3px 0;
     padding:0px;
     display:block;
-    font-weight: bold;
 }
 .form-style-1 input[type=text],
 .form-style-1 input[type=date],
@@ -704,6 +696,7 @@ select{
     -ms-transition: all 0.30s ease-in-out;
     -o-transition: all 0.30s ease-in-out;
     outline: none;
+    font-size: 16px;
 }
 .form-style-1 input[type=text]:focus,
 .form-style-1 input[type=date]:focus,
@@ -738,12 +731,15 @@ select{
     padding: 8px 35px 8px 35px;
     border: none;
     color: #fff;
+    font-size: 16px;
+    transition: all .4s;
 }
 .form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover{
     background: #4691A4;
     box-shadow:none;
     -moz-box-shadow:none;
     -webkit-box-shadow:none;
+    transform: scale(1.05);
 }
 .form-style-1 .required{
     color:red;
@@ -908,4 +904,119 @@ a:link, a:visited, a:hover, a:active {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+}
+
+.instafeed-wrapper {
+  padding: 20px;
+  // display: flex;
+  // flex-wrap: wrap;
+}
+
+.thumb {
+    transition: all .4s;
+    display: inline-block;
+    // width: 75px;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+
+
+    // @media screen and (min-width: 45em) {
+    //   height:125px;
+    //   width: 125px;
+    // }
+    // @media screen and (min-width: 55em) {
+    //   height:150px;
+    //   width: 150px;
+    // }
+    // @media screen and (min-width: 65em) {
+    //   height:175px;
+    //   width: 175px;
+    // }
+    // @media screen and (min-width: 75em) {
+    //   height:200px;
+    //   width: 200px;
+    // }
+}
+
+.insta-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -5px;
+  margin-right: -5px;
+  &__image {
+    display: inline-block;
+    width: calc(25%);
+    text-decoration: none;
+    color: black;
+    :nth-of-type(2n) {
+      margin-right: 0;
+    }
+    @media screen and (min-width: 35em) {
+      width: calc(20%);
+      height:100px;
+    }
+    // @media screen and (min-width: 55em) {
+    //   // width: calc(25%);
+    // }
+    :hover .thumb {
+      transform: scale(1.025);
+    }
+    :hover .photo-overlay {
+      background-color: rgba(250,250,250,.6);
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+}
+
+.instafeed {
+  width: 80%;
+  > .insta-gallery__image:nth-last-of-type(-n+2) {
+    @media screen and (min-width: 35em) {
+      display: inline-block;
+    }
+    display: none;
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#socialicons {
+    text-align: center;
+}
+#socialicons .icon{
+    transition: all .4s;
+    display: inline-block;
+    color: white;
+    font-size: 18px;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 1px 8px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    border-radius: 17px;
+}
+
+.insta {
+  background: #9F703F;
+}
+
+.facebook {
+  background: #39579A;
+}
+
+.email {
+  background: #AAAAAA;
+}
+
+#socialicons .icon:hover{
+    transform: scale(1.1);
 }

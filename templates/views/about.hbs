@@ -10,12 +10,23 @@
           <h2 style="text-align: center;">{{title}}</h2>
   				{{{content.extended}}}
         </div>
-        <div class="about__container__image">
+        <!-- <div class="about__container__image">
           <img src="{{{cloudinaryUrl image}}}" />
-        </div>
+        </div> -->
       {{/with}}
     {{/if}}
   </div>
 </div>
+<div>
+  <h2 style="text-align: center;">FOLLOW ALONG</h2>
+  <p style="text-align: center;">@jenlarissaphoto</p>
+    <div class="insta-gallery flex">
+      <div id='instafeed' class="instafeed">
+      </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/instafeed.min.js"></script>
+<script type="text/javascript" src="/js/about.js"></script>
 
 {{>footer}}
