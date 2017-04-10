@@ -365,7 +365,6 @@ h1{
 }
 
 
-
 /*Trying functional css with block - slot style*/
 /*Use .myblock-B.mymodifier-M for modifiers like active state*/
 
@@ -378,11 +377,9 @@ h1{
     z-index: 10;
     display: flex;
     flex-direction: column;
-    /*border: 2px solid green;*/
 }
 
 .menu-S-logo {
-  /*border: 2px solid blue;*/
   position: absolute;
   left: 0;
   float: left;
@@ -400,13 +397,11 @@ h1{
   right: 0;
   display: flex;
   flex-direction: row-reverse;
-  /*border: 2px solid blue;*/
   width: 50%;
 }
 
 .menu-S-option {
     margin: 1em;
-    /*border: 2px solid pink;*/
 }
 
 .navlink-B {
@@ -427,7 +422,6 @@ h1{
 }
 
 .details-container {
-  margin-top: 10px;
   margin-bottom: 10px;
   width: 100%;
   height: 62vh;
@@ -441,7 +435,6 @@ h1{
 }
 
 .photo-container {
-  /*background-color: rgba(200,200,200,.3);*/
   overflow: hidden;
 }
 
@@ -451,7 +444,7 @@ h1{
   align-items: center;
   justify-content: center;
   background-color: #F4F4F4;
-  margin-top: 70px;
+  margin-top: 10px;
   padding: 20px;
   &__text {
     width: 100%;
@@ -469,7 +462,7 @@ h1{
   justify-content: center;
   overflow: hidden;
   position: relative;
-  padding: 5px;
+  padding: 3px;
 }
 
 .photo-overlay {
@@ -484,15 +477,16 @@ h1{
   &__title {
     flex:1;
     color: black;
+    text-align: center;
   }
   &__description {
+    margin-top: 10px;
     flex:2;
     color: black;
     padding-left: 15px;
     padding-right: 15px;
   }
 }
-
 
 .gallery {
   display: flex;
@@ -501,7 +495,6 @@ h1{
   margin-right: -5px;
   &__image {
     display: inline-block;
-    margin-bottom: 8px;
     width: calc(100%);
     text-decoration: none;
     color: black;
@@ -524,15 +517,6 @@ h1{
     }
   }
 }
-
-/*.image {
-  display: inline-block;
-  margin-bottom: 8px;
-  width: calc(50% - 4px);
-  margin-right: 8px;
-  text-decoration: none;
-  color: black;
-}*/
 
 figure {
   margin: 0;
@@ -571,13 +555,23 @@ img {
   color: white;
 }
 
+.hover-link {
+  transition: all .4s;
+}
+
+.hover-link:hover {
+  transform: scale(1.02);
+}
+
 .nav-margin {
-  margin-bottom: 65px;
+  margin-bottom: 0px;
   position: relative;
+  @media screen and (min-width: 30em) {
+    margin-bottom: 65px;
+  }
 }
 
 .blog {
-  // border: 1px solid gray;
   padding-left: 5%;
   padding-right: 5%;
   display: flex;
@@ -586,6 +580,15 @@ img {
   &__header {
     text-align: center;
     width: 40%;
+    &__date {
+      margin-bottom: 10px;
+    }
+    &__title {
+      margin-bottom: 20px;
+    }
+    &__description {
+
+    }
   }
   &__images {
    display: flex;
@@ -612,18 +615,33 @@ img {
   justify-content: center;
   &__container {
     width: 85%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     @media (min-width: 720px) {
       width: 70%;
     }
     @media (min-width: 1000px) {
-      width: 60%;
+      width: 90%;
+    }
+    &__text {
+      width: 100%;
+      @media (min-width: 1000px) {
+        width: 50%;
+      }
     }
     &__sub {
+      width: 100%;
+      @media (min-width: 1000px) {
+        width: 50%;
+      }
       display: flex;
       &__form {
         // width: 50%;
         width: 100%;
         display: flex;
+        justify-content: center;
+        align-items: center;
       }
       &__image {
         display: none;
@@ -727,7 +745,7 @@ select{
     height: 100px;
 }
 .form-style-1 input[type=submit], .form-style-1 input[type=button]{
-    background: #4B99AD;
+    background: rgba(132,186,199,.83);
     padding: 8px 35px 8px 35px;
     border: none;
     color: #fff;
@@ -735,7 +753,7 @@ select{
     transition: all .4s;
 }
 .form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover{
-    background: #4691A4;
+    background: rgba(132,186,199,.5);
     box-shadow:none;
     -moz-box-shadow:none;
     -webkit-box-shadow:none;
@@ -757,7 +775,8 @@ select{
     transition: all .5s;
     height: 100vh;
     background-color: rgba(245,245,245,.95);
-    width: 100%;
+    right: 0px;
+    left: 0px;
     transform: translateX(-100%);
     position: fixed;
     top: 0px;
@@ -825,13 +844,16 @@ a:link, a:visited, a:hover, a:active {
 
 .nav-toggle {
   transition: all .5s;
-  width: 30px;
-  height: 30px;
+  margin-left: 5px;
+  margin-top: 5px;
+  width: 25px;
+  height: 25px;
   padding: 10px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(145,145,145,0.4);
   &__open {
     position: absolute;
     height: 60%;
@@ -889,11 +911,6 @@ a:link, a:visited, a:hover, a:active {
 
 .slide-body {
   transition: all .5s;
-}
-
-.lock-scroll {
-  height: 100vh;
-  overflow: hidden;
 }
 
 .noselect {

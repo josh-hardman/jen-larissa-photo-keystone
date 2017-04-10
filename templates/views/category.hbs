@@ -2,18 +2,10 @@
 
 <div class="gallery">
 
-    {{>paralax url=(cloudinaryUrl galleries.[0].heroImage) title=(toUpperCase category)}}
-
+    {{>paralax image=(cloudinaryUrl galleries.[0].heroImage) title=(toUpperCase category)}}
+<!-- <p>{{galleries}}</p> -->
 		{{#each galleries}}
-      <a class="image" href="/blog/{{{toLowerCase key}}}">
-        <figure class="photo-inner">
-          <img src="{{{cloudinaryUrl heroImage}}}" alt="">
-          <div class="photo-overlay">
-            <h3 class="photo-overlay__title">{{{toUpperCase name}}}</h3>
-            <p class="photo-overlay__description">{{{toUpperCase content.brief}}}</p>
-          </div>
-        </figure>
-      </a>
+      {{>gallery-post ref=key img=heroImage title=name description=content.brief}}
     {{/each}}
 
 </div>

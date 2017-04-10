@@ -4,19 +4,7 @@
 
 <div class="gallery">
 		{{#each data.sessions}}
-      <a class="gallery__image" href="/blog/{{{toLowerCase key}}}">
-        <figure class="photo-inner">
-          <img src="{{{cloudinaryUrl heroImage}}}" alt="">
-          <div class="photo-overlay">
-            {{#if content.extended}}
-              <h3 class="photo-overlay__title">{{{toUpperCase name}}}</h3>
-            {{/if}}
-            {{#if content.extended}}
-              <p class="photo-overlay__description">{{{toUpperCase content.brief}}}</p>
-            {{/if}}
-          </div>
-        </figure>
-      </a>
+      {{>gallery-post ref=key img=heroImage title=name description=content.brief}}
     {{/each}}
 </div>
 

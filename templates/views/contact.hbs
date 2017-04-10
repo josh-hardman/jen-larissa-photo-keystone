@@ -1,14 +1,17 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 
 {{>navbar margin=true}}
-
-{{>paralax url='/img/blur_landing_background.jpg' title='CONTACT'}}
+{{#with (cloudinaryUrl posts.[0].image) as |url|}}
+	{{>paralax image=url title='CONTACT'}}
+{{/with}}
 <div class="contact">
 	{{#if posts}}
 		{{#with posts.[0]}}
 			<div class="contact__container">
-				<h2 style="text-align: center;">{{title}}</h2>
-				{{{content.extended}}}
+				<div class="contact__container__text">
+					<h2 style="text-align: center;">{{title}}</h2>
+					{{{content.extended}}}
+				</div>
 				<div class="contact__container__sub">
 						<div class="contact__container__sub__form">
 							{{#if ../enquirySubmitted}}
