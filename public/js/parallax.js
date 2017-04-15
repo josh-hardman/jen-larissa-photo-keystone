@@ -1,6 +1,6 @@
 /* detect touch */
 if("ontouchstart" in window){
-  document.documentElement.className = document.documentElement.className + " touch";
+  document.documentElement.className = document.documentElement.className + "touch";
 }
 if(!$("html").hasClass("touch")){
   /* background fix */
@@ -36,6 +36,7 @@ function backgroundResize(){
       diff = diff ? diff : 0;
       // remaining height to have fullscreen image only on parallax
       var remainingH = 0;
+      // if(path.hasClass("parallax") && !$("html").hasClass("touch")){
       if(path.hasClass("parallax") && !$("html").hasClass("touch")){
           var maxH = contH > windowH ? contH : windowH;
           remainingH = windowH - contH;

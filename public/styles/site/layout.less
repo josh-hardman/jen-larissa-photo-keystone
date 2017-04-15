@@ -391,12 +391,18 @@ h1{
 	}
 }
 
-.side-bar-nav{
+.side-bar-nav-wrapper {
   position: fixed;
-    top: 42%;
-    right: 10px;
-    padding: 0 10px 0 0;
-    z-index: 50;
+  height: 100vh;
+  width: 100vw;
+  z-index: 50;
+  .display-flex();
+  .align-items(center);
+  .justify-content(flex-end)
+}
+
+.side-bar-nav {
+  padding: 0 15px 0 0;
 }
 
 .side-bar-nav a{
@@ -439,7 +445,7 @@ h1{
 
 .side-bar-nav a:hover .title {
   opacity: 1;
-  visibility: visible;
+  // visibility: visible;
   transform: translateX(0px);
 }
 
