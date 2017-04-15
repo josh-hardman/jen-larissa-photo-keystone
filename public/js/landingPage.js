@@ -37,12 +37,12 @@ $('#bg').on('load', function() {
 window.setTimeout(function(){
   if( imgLoaded ) {
     performAnimation();
-    preloadPortfolioAssets();
+    // preloadPortfolioAssets();
   } else {
     $('#bg').on('load', function() {
       imgLoaded = true;
       performAnimation();
-      preloadPortfolioAssets();
+      // preloadPortfolioAssets();
     });
   }
 },2500);

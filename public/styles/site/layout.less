@@ -70,10 +70,10 @@ body{
   // background-color: rgb(50,50,50);
 }
 
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
+// html, body {
+//     max-width: 100%;
+//     overflow-x: hidden;
+// }
 
 a {
   color: inherit;
@@ -135,13 +135,21 @@ img {max-width:100%;}
   opacity: 0;
 }
 
-.btn-lg{
+.btn-lg {
   background-color: #FFFFFF;
   opacity: .7;
   padding: 10px 40px;
   color: #333333;
   text-decoration: none;
+  font-size: 14px;
 }
+
+@media (min-width:500px){
+  .btn-lg{
+    font-size: 16px;
+  }
+}
+
 
 .center {
   margin: 0 auto;
@@ -151,8 +159,12 @@ img {max-width:100%;}
   .display-flex();
   width: 100%;
   opacity: 0;
+  transition: all .4s;
 }
 
+.button-container:hover {
+  transform: scale(1.05);
+}
 /* Animations */
 
 .moveRight{
@@ -168,7 +180,7 @@ img {max-width:100%;}
         width: 100%;
     }
     100% {
-        width: 50%;
+        width: 60%;
     }
 }
 
