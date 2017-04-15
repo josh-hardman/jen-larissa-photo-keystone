@@ -1,52 +1,56 @@
-{{#if margin}}
-  <nav class="frame-S-nav menu-B  nav-margin">
-{{else}}
-  <nav class="frame-S-nav menu-B">
-{{/if}}
-    <div class="full-nav">
-      <div class="menu-S-logo">
-          <img class="logo-B" src="/img/jen_larissa-black.png" alt="">
-      </div>
-      <div class="menu-S-nav">
-        <a href="/contact" class="menu-S-option navlink-B">CONTACT</a>
-        <a href="/about" class="menu-S-option navlink-B">ABOUT</a>
-        <a href="/blog" class="menu-S-option navlink-B">BLOG</a>
-        <a href="/portfolio" class="menu-S-option navlink-B">PORTFOLIO</a>
-      </div>
-    </div>
-    <div class="mobile-nav noselect">
-      <div class="nav-toggle">
-        <div class="nav-toggle__open">
-          <div class="nav-toggle__open__bar"></div>
-          <div class="nav-toggle__open__bar"></div>
-          <div class="nav-toggle__open__bar"></div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="nav-wrap">
+  {{#if margin}}
+    <nav class="frame-S-nav menu-B  nav-margin">
+  {{else}}
+    <nav class="frame-S-nav menu-B">
+  {{/if}}
+      <div class="full-nav">
+        <div class="menu-S-logo">
+          <a href="/portfolio">
+            <img class="logo-B" src="/img/jen_larissa-black.png" alt="">
+          </a>
         </div>
-        <div class="nav-toggle__close">
-          <div class="nav-toggle__close__bar nav-toggle__close__bar__1"></div>
-          <div class="nav-toggle__close__bar nav-toggle__close__bar__2"></div>
+        <div class="menu-S-nav">
+          <a href="/contact" class="menu-S-option navlink-B">CONTACT</a>
+          <a href="/about" class="menu-S-option navlink-B">ABOUT</a>
+          <a href="/blog" class="menu-S-option navlink-B">BLOG</a>
+          <a href="/portfolio" class="menu-S-option navlink-B">PORTFOLIO</a>
         </div>
       </div>
-      <div class="mobile-nav__background">
-        <div class="mobile-nav__logo">
+      <div class="mobile-nav noselect">
+        <div class="nav-toggle">
+          <img class="nav-toggle__open" src="/img/menu.svg" alt="">
+          <img class="nav-toggle__close" src="/img/exit.svg" alt="">
+        </div>
+        <div class="mobile-nav__background">
+          <a class="mobile-nav__logo" href="/portfolio">
             <img src="/img/jen_larissa-black.png" alt="">
-        </div>
-        <div class="mobile-nav__list">
-          <a href="/contact"  class="mobile-nav__list__item">
-            <p>CONTACT</p>
           </a>
-          <a href="/about"  class="mobile-nav__list__item">
-            <p>ABOUT</p>
-          </a>
-          <a href="/blog"  class="mobile-nav__list__item">
-            <p>BLOG</p>
-          </a>
-          <a href="/portfolio"  class="mobile-nav__list__item">
-            <p>PORTFOLIO</p>
-          </a>
+          <div class="mobile-nav__list">
+            <a href="/portfolio"  class="mobile-nav__list__item">
+              <p>PORTFOLIO</p>
+            </a>
+            <a href="/blog"  class="mobile-nav__list__item">
+              <p>BLOG</p>
+            </a>
+            <a href="/about"  class="mobile-nav__list__item">
+              <p>ABOUT</p>
+            </a>
+            <a href="/contact"  class="mobile-nav__list__item">
+              <p>CONTACT</p>
+            </a>
+          </div>
+          <div id="socialicons" class="footer__icon-bar" style="padding-bottom: 20px;">
+            <a class="icon insta" href="https://www.instagram.com/jenlarissaphoto/?hl=en" title="Follow with Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a class="icon facebook" href="https://www.facebook.com/jenlarissaphoto/?hc_ref=SEARCH" title="Follow with Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a class="icon email" href="mailto:jenlarissaphoto@gmail.com" title="Email Me" target="_blank"><i class="fa fa-envelope"></i></a>
+          </div>
         </div>
       </div>
-    </div>
-</nav>
+  </nav>
+</div>
 
 <script src="/js/nav.js"></script>
 <script src="/js/jquery.scrollLock.js"></script>

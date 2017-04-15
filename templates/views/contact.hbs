@@ -9,54 +9,59 @@
 		{{#with posts.[0]}}
 			<div class="contact__container">
 				<div class="contact__container__text">
-					<h2 style="text-align: center;">{{title}}</h2>
-					{{{content.extended}}}
+					<div style="padding: 20px;">
+						<h1 class="nazeefa" style="text-align: center;">{{title}}</h1>
+						{{{content.extended}}}
+					</div>
 				</div>
 				<div class="contact__container__sub">
 						<div class="contact__container__sub__form">
 							{{#if ../enquirySubmitted}}
 								<h3>Thanks for getting in touch!</h3>
 							{{else}}
+							<div class="">
+								{{>artwork img='/img/art1.png' class='rotate'}}
 								<form method="post" style="width: 100%">
 									<ul class="form-style-1">
-											<input type="hidden" name="action" value="contact">
-											<div class="form-group {{#if validationErrors.name}}has-error{{/if}}">
-												<li>
-													<label>Full Name <span class="required">*</span></label>
-													<input type="text" name="name.full" class="field-long" value="{{formData.[name.full]}}" required>
-												</li>
-											</div>
-											<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
-												<li>
-										        <label>Email <span class="required">*</span></label>
-										        <input type="email" name="email" class="field-long" value="{{formData.email}}" required>
-										    </li>
-											</div>
-											<div class="form-group">
-												<li>
-													<label>Phone</label>
-													<input type="text" name="phone" placeholder="(optional)" class="field-long" value="{{formData.phone}}">
-												</li>
-											</div>
-											<div class="form-group {{#if validationErrors.enquiryType}}has-error{{/if}}">
-										    <li>
-										        <label>What are you contacting us about?</label>
-										        <select name="enquiryType" class="field-select">
-															{{#each enquiryTypes}}
-																<option value="{{value}}">{{label}}</option>
-															{{/each}}
-										        </select>
-										    </li>
-											</div>
-									    <li>
-									        <label>Your Message <span class="required">*</span></label>
-									        <textarea name="message" class="field-long field-textarea" required>{{formData.message}}</textarea>
-									    </li>
-									    <li>
-									        <input type="submit" value="Submit" />
-									    </li>
+										<input type="hidden" name="action" value="contact">
+										<div class="form-group {{#if validationErrors.name}}has-error{{/if}}">
+											<li>
+												<label>Full Name <span class="required">*</span></label>
+												<input type="text" name="name.full" class="field-long" value="{{formData.[name.full]}}" required>
+											</li>
+										</div>
+										<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
+											<li>
+												<label>Email <span class="required">*</span></label>
+												<input type="email" name="email" class="field-long" value="{{formData.email}}" required>
+											</li>
+										</div>
+										<div class="form-group">
+											<li>
+												<label>Phone</label>
+												<input type="text" name="phone" placeholder="(optional)" class="field-long" value="{{formData.phone}}">
+											</li>
+										</div>
+										<!-- <div class="form-group {{#if validationErrors.enquiryType}}has-error{{/if}}">
+											<li>
+												<label>What are you contacting us about?</label>
+												<select name="enquiryType" class="field-select">
+													{{#each enquiryTypes}}
+													<option value="{{value}}">{{label}}</option>
+													{{/each}}
+												</select>
+											</li>
+										</div> -->
+										<li>
+											<label>Your Message <span class="required">*</span></label>
+											<textarea name="message" class="field-long field-textarea" required>{{formData.message}}</textarea>
+										</li>
+										<li>
+											<input type="submit" value="Submit" />
+										</li>
 									</ul>
 								</form>
+							</div>
 							{{/if}}
 
 

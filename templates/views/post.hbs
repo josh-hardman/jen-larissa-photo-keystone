@@ -18,13 +18,16 @@
 {{#if data.sessions}}
 	{{#with data.sessions.[0]}}
 
-		<div class="blog">
-		  <div class="blog__header">
-		    <p class="blog__header__date">{{{date}}}</p>
-		    <h3 class="blog__header__title">{{{toUpperCase name}}}</h3>
-		    <p class="blog__header__description">{{{content.extended}}}</p>
-		  </div>
-		</div>
+
+
+	<div class="blog">
+	  <div class="blog__header">
+			{{>artwork img='/img/boquet2.png' class="post-art"}}
+	    <p class="blog__header__date">{{{date}}}</p>
+	    <h3 class="blog__header__title">{{{toUpperCase name}}}</h3>
+	    <p class="blog__header__description">{{{content.extended}}}</p>
+	  </div>
+	</div>
 
 		<div class="blog">
 			  <div class="blog__images">

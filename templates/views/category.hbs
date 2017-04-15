@@ -1,8 +1,8 @@
 {{>navbar margin=true}}
 
 <div class="gallery">
-
-    {{>paralax image=(cloudinaryUrl galleries.[0].heroImage) title=(toUpperCase category)}}
+  {{>paralax image=(cloudinaryUrl galleries.[0].heroImage) title=(toUpperCase category)}}
+  {{>artwork img='/img/boquet.png' class="blog-art" style="margin-bottom: 20px;"}}
 <!-- <p>{{galleries}}</p> -->
 		{{#each galleries}}
       {{>gallery-post ref=key img=heroImage title=name description=content.brief}}

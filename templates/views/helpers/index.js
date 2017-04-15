@@ -126,6 +126,10 @@ module.exports = function () {
 		return ref[index] ? ref[index].slug : {}
 	}
 
+	_helpers.striptags = function( txt ) {
+		return txt.replace(/<\/?[^>]+(>|$)/g, "");
+	}
+
 	_helpers.getCurrentYear = function() {
 		return new Date().getFullYear();
 	}

@@ -1,7 +1,8 @@
 {{>navbar margin=true}}
-
-{{>paralax title=posts.[0].title}}
-
+{{>paralax title=posts.[0].title image=(cloudinaryUrl posts.[0].image)}}
+<div class="about" style="padding: 40px; padding-bottom:0px;">
+    <h1 class="nazeefa text-center">{{striptags posts.[0].content.brief}}</h1>
+</div>
 <div class="about">
   <div class="about__container">
     {{#if posts}}
@@ -9,22 +10,24 @@
         <div class="about__container__text">
   				{{{content.extended}}}
         </div>
-        <!-- <div class="about__container__image">
-          <img src="{{{cloudinaryUrl image}}}" />
-        </div> -->
       {{/with}}
     {{/if}}
   </div>
 </div>
-<div class='uil-ring-css'><div></div></div>
 <div>
-  <div><div>
-  <h2 style="text-align: center;">FOLLOW ALONG</h2>
-  <p style="text-align: center;">@jenlarissaphoto</p>
-    <div class="insta-gallery flex">
-      <div id='instafeed' class="instafeed">
+  <div class="about">
+    <div class="about__container">
+      <div>
+        {{>artwork img='/img/art1.png' class='rotate'}}
       </div>
     </div>
+  </div>
+  <h2 class="nazeefa" style="text-align: center;">follow along</h2>
+  <h3 style="text-align: center;">@jenlarissaphoto</h3>
+  <div class="insta-gallery flex">
+    <div id='instafeed' class="instafeed">
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript" src="/js/instafeed.min.js"></script>

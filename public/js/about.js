@@ -26,7 +26,6 @@ var resize = function(){
  userFeed.run()
 
 
-
 $(window).resize(function(){
  resize()
 })
