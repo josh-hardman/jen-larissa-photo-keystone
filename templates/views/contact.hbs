@@ -2,7 +2,7 @@
 
 {{>navbar margin=true}}
 {{#with (cloudinaryUrl posts.[0].image) as |url|}}
-	{{>paralax image=url title='CONTACT'}}
+	{{>paralax image=url title='CONTACT' position=posts.[0].imagePosition}}
 {{/with}}
 <div class="contact">
 	{{#if posts}}

@@ -1,5 +1,5 @@
 {{>navbar margin=true}}
-{{>paralax title=posts.[0].title image=(cloudinaryUrl posts.[0].image)}}
+{{>paralax title=posts.[0].title image=(cloudinaryUrl posts.[0].image) position=posts.[0].imagePosition}}
 <div class="about" style="padding: 40px; padding-bottom:0px;">
     <h1 class="nazeefa text-center">{{striptags posts.[0].content.brief}}</h1>
 </div>

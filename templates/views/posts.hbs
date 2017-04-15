@@ -1,7 +1,9 @@
 {{>navbar margin=true}}
 
 {{>paralax title='BLOG'}}
-	{{>artwork img='/img/boquet2.png' class="blog-art"}}
+
+{{>artwork img='/img/boquet2.png' class="blog-art"}}
+
 <div class="gallery">
 		{{#each data.sessions}}
       {{>gallery-post ref=key img=heroImage title=name description=content.brief}}

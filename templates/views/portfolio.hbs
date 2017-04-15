@@ -19,32 +19,32 @@
 	</a>
 </div>
 
-	{{#each data.posts.results}}
-		<div id="{{{slug}}}" class="container background parallax" style="background: url({{{cloudinaryUrl image}}}) no-repeat 45% 0%;" data-img-width="1600" data-img-height="1064" data-diff="100">
-				<div class="content-a category-title">
-						<div class="hover-link content-b">
-							<a href="/portfolio/{{{slug}}}">
-								<h1 class="center">{{{toUpperCase title}}}</h1>
-							</a>
-						</div>
-				</div>
-				{{#if @last}}
-					<div class="scroll-container up">
-						<a class="scroll-anchor" href="#engagements">
-							<span class="upArrow"></span>
-							<p class="center scroll-text">SCROLL TOP</p>
+{{#each data.posts.results}}
+	<div id="{{{slug}}}" class="container background parallax" style="background: url({{{cloudinaryUrl image}}}) no-repeat 0%;" data-img-width="1600" data-img-height="1064" data-diff="100" {{#if imagePosition}}data-oriz-pos="{{imagePosition}}"{{/if}}>
+			<div class="content-a category-title">
+					<div class="hover-link content-b">
+						<a href="/portfolio/{{{slug}}}">
+							<h1 class="center">{{{toUpperCase title}}}</h1>
 						</a>
 					</div>
-				 {{else}}
-					 <div class="scroll-container">
-						 <a class="scroll-anchor" href="#{{getNextSlug ../data.posts.results @index}}">
-							 <span></span>
-							 <p class="center scroll-text">SCROLL DOWN</p>
-						 </a>
-					 </div>
-				 {{/if}}
-		</div>
-	{{/each}}
+			</div>
+			{{#if @last}}
+				<div class="scroll-container up">
+					<a class="scroll-anchor" href="#engagements">
+						<span class="upArrow"></span>
+						<p class="center scroll-text">SCROLL TOP</p>
+					</a>
+				</div>
+			 {{else}}
+				 <div class="scroll-container">
+					 <a class="scroll-anchor" href="#{{getNextSlug ../data.posts.results @index}}">
+						 <span></span>
+						 <p class="center scroll-text">SCROLL DOWN</p>
+					 </a>
+				 </div>
+			 {{/if}}
+	</div>
+{{/each}}
 
 <script src="/js/portfolio.js"></script>
 <script src="/js/parallax.js"></script>

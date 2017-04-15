@@ -2,13 +2,13 @@
   class="details-container background parallax"
   {{#if image}}
     style="background: url('{{image}}') no-repeat 45% 0%;"
-
   {{else}}
     style="background: url('/img/landing_background.jpg') no-repeat 45% 0%;"
   {{/if}}
   data-img-width="1600"
   data-img-height="1064"
   data-diff="100"
+  {{#if position}}data-oriz-pos="{{position}}"{{/if}}
 >
     <div class="content-a category-title">
         <div class="content-b">
