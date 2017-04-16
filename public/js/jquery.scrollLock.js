@@ -1,44 +1,124 @@
-$.scrollLock = ( function scrollLockSimple(){
-	var locked   = false;
-	var $body;
-	var previous;
+$.scrollLock = ( function scrollLockClosure() {
+    'use strict';
 
-	function lock(){
-	  if( !$body ){
-	    $body = $( 'body' );
-	  }
+    var $html      = $( 'html' ),
+        // State: unlocked by default
+        locked     = false,
+        // State: scroll to revert to
+        prevScroll = {
+            scrollLeft : $( window ).scrollLeft(),
+            scrollTop  : $( window ).scrollTop()
+        },
+        // State: styles to revert to
+        prevStyles = {},
+        lockStyles = {
+            'overflow-y' : 'scroll',
+            'position'   : 'fixed',
+            'width'      : '100%'
+        };
 
-	  previous = $body.css( 'overflow' );
+    // Instantiate cache in case someone tries to unlock before locking
+    saveStyles();
 
-	  $body.css( 'overflow', 'hidden' );
+    // Save context's inline styles in cache
+    function saveStyles() {
+        var styleAttr = $html.attr( 'style' ),
+            styleStrs = [],
+            styleHash = {};
 
-	  locked = true;
-	}
+        if( !styleAttr ){
+            return;
+        }
 
-	function unlock(){
-	  $body.css( 'overflow', previous );
+        styleStrs = styleAttr.split( /;\s/ );
 
-	  locked = false;
-	}
+        $.each( styleStrs, function serializeStyleProp( styleString ){
+            if( !styleString ) {
+                return;
+            }
 
-	return function scrollLock( on ) {
-		// If an argument is passed, lock or unlock depending on truthiness
-		if( arguments.length ) {
-			if( on ) {
-				lock();
-			}
-			else {
-				unlock();
-			}
-		}
-		// Otherwise, toggle
-		else {
-			if( locked ){
-				unlock();
-			}
-			else {
-				lock();
-			}
-		}
-	};
+            var keyValue = styleString.split( /\s:\s/ );
+
+            if( keyValue.length < 2 ) {
+                return;
+            }
+
+            styleHash[ keyValue[ 0 ] ] = keyValue[ 1 ];
+        } );
+
+        $.extend( prevStyles, styleHash );
+    }
+
+    function lock() {
+        var appliedLock = {};
+
+        // Duplicate execution will break DOM statefulness
+        if( locked ) {
+            return;
+        }
+
+        // Save scroll state...
+        prevScroll = {
+            scrollLeft : $( window ).scrollLeft(),
+            scrollTop  : $( window ).scrollTop()
+        };
+
+        // ...and styles
+        saveStyles();
+
+        // Compose our applied CSS
+        $.extend( appliedLock, lockStyles, {
+            // And apply scroll state as styles
+            'left' : - prevScroll.scrollLeft + 'px',
+            'top'  : - prevScroll.scrollTop  + 'px'
+        } );
+
+        // Then lock styles...
+        $html.css( appliedLock );
+
+        // ...and scroll state
+        $( window )
+            .scrollLeft( 0 )
+            .scrollTop( 0 );
+
+        locked = true;
+    }
+
+    function unlock() {
+        // Duplicate execution will break DOM statefulness
+        if( !locked ) {
+            return;
+        }
+
+        // Revert styles
+        $html.attr( 'style', $( '<x>' ).css( prevStyles ).attr( 'style' ) || '' );
+
+        // Revert scroll values
+        $( window )
+            .scrollLeft( prevScroll.scrollLeft )
+            .scrollTop(  prevScroll.scrollTop );
+
+        locked = false;
+    }
+
+    return function scrollLock( on ) {
+        // If an argument is passed, lock or unlock depending on truthiness
+        if( arguments.length ) {
+            if( on ) {
+                lock();
+            }
+            else {
+                unlock();
+            }
+        }
+        // Otherwise, toggle
+        else {
+            if( locked ){
+                unlock();
+            }
+            else {
+                lock();
+            }
+        }
+    };
 }() );
