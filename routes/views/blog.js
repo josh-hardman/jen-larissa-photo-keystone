@@ -30,8 +30,22 @@ exports = module.exports = function (req, res) {
 
 	});
 
+	var PostCategory = keystone.list('PostCategory');
+
+	PostCategory.model.find()
+		.where('name', 'blog')
+    .exec(function(err, category) {
+			var id = category[0]._id;
+			view.query('posts', keystone.list('Post').model.find(
+				{
+					categories: ObjectID(id)
+				}
+			).sort('sortOrder'));
+			view.render('posts');
+    });
+
 	// Render the view
-	view.render('posts');
+
   //
 	// Gallery.model.find()
 	// 	.where('key', key)
