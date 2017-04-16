@@ -20,7 +20,7 @@
 </div>
 
 {{#each data.posts.results}}
-	<div id="{{{slug}}}" class="container background parallax" style="background: url({{{cloudinaryUrl image}}}) no-repeat 0%;" data-img-width="1600" data-img-height="1064" data-diff="100" {{#if imagePosition}}data-oriz-pos="{{imagePosition}}"{{/if}}>
+	<div id="{{{slug}}}" class="container background parallax" style="background: url({{{cloudinaryUrl image}}}) no-repeat {{#if imagePosition}}{{imagePosition}}{{/if}};" data-img-width="1600" data-img-height="1064" data-diff="100" {{#if imagePosition}}data-oriz-pos="{{imagePosition}}"{{/if}}>
 			<div class="content-a category-title">
 					<div class="hover-link content-b">
 						<a href="/portfolio/{{{slug}}}">
