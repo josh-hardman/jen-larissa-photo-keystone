@@ -1,4 +1,7 @@
-var preLoadAssets = document.currentScript.getAttribute('data-asset-urls'); //1
+var preLoadAssets = []
+$('.js-pre-load').each(function(){
+  preLoadAssets.push( $(this).text() )
+})
 
 document.body.classList.add("animate-in");
 
@@ -24,7 +27,7 @@ var performAnimation = function(){
 var preloadPortfolioAssets = function(){
   if(preLoadAssets) {
     preLoadAssets.map( function(assetUrl) {
-      $('body').append('<img src="' + assetUrl + '" alt="Book" id="bg" style="display:none;"/>');
+      $('body').append('<img src="' + assetUrl + '" id="bg" style="display:none;"/>');
     })
   }
 }
@@ -34,18 +37,24 @@ $('#bg').on('load', function() {
     imgLoaded = true;
 });
 
+var loadWait = 1400;
+
 window.setTimeout(function(){
   if( imgLoaded ) {
     performAnimation();
-    // preloadPortfolioAssets();
+    window.setTimeout(function(){
+      preloadPortfolioAssets();
+    },loadWait)
   } else {
     $('#bg').on('load', function() {
       imgLoaded = true;
       performAnimation();
-      // preloadPortfolioAssets();
+      window.setTimeout(function(){
+        preloadPortfolioAssets();
+      },loadWait)
     });
   }
-},2500);
+},2200);
 
 
 

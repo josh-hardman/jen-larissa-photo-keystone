@@ -1,0 +1,30 @@
+{{>navbar margin=true}}
+{{>paralax title=posts.[0].title image=(cloudinaryUrl posts.[0].image) position=posts.[0].imagePosition}}
+<div class="pricing" style="padding: 40px; padding-bottom:0px;">
+    <h1 class="nazeefa text-center">{{striptags posts.[0].content.brief}}</h1>
+</div>
+<div class="pricing">
+  <div class="pricing__container">
+    {{#if posts}}
+  		{{#with posts.[0]}}
+        <div class="pricing__container__text">
+  				{{{content.extended}}}
+        </div>
+      {{/with}}
+    {{/if}}
+  </div>
+</div>
+<a href="contact">Reach out to me here</a>
+<div>
+  <div class="pricing">
+    <div class="pricing__container">
+      <div>
+        {{>artwork img='/img/art1.png' class='rotate'}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <script type="text/javascript" src="/js/pricing.js"></script> -->
+
+{{>footer}}

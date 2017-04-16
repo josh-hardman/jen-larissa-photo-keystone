@@ -1,8 +1,8 @@
-document.body.classList.add("animate-in");
-
-window.addEventListener("beforeunload", function () {
-  document.body.classList.add("animate-out");
-});
+// document.body.classList.add("animate-in");
+//
+// window.addEventListener("beforeunload", function () {
+//   document.body.classList.add("animate-out");
+// });
 
 var setActiveSideBarSection = function() {
   function elementScrolled(elem) {

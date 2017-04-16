@@ -27,5 +27,5 @@ $( document ).ready( () => {
 })
 
 $(window).resize(() => {
-  if ( $(window).width() > 480 && mobileOpen ) closeMobileNav()
+  if ( $(window).width() > 580 && mobileOpen ) closeMobileNav()
 })

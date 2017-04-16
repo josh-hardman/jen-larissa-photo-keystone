@@ -40,5 +40,8 @@
     </div>
   </div>
   <img src="/img/landing_background.jpg" alt="Book" id="bg" style="display:none;"/>
+  {{#each data.posts.results}}
+    <div class="js-pre-load">{{{cloudinaryUrl image}}}</div>
+  {{/each}}
 
-	<script src="/js/landingPage.js" data-asset-urls=null></script>
+	<script src="/js/landingPage.js"></script>
