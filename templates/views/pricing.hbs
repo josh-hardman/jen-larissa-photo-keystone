@@ -1,25 +1,39 @@
 {{>navbar margin=true}}
 {{>paralax title=posts.[0].title image=(cloudinaryUrl posts.[0].image) position=posts.[0].imagePosition}}
 <div class="pricing" style="padding: 40px; padding-bottom:0px;">
-    <h1 class="nazeefa text-center">{{striptags posts.[0].content.brief}}</h1>
+    <h1 class="nazeefa text-center">investment + f.a.q's</h1>
 </div>
 <div class="pricing">
   <div class="pricing__container">
     {{#if posts}}
-  		{{#with posts.[0]}}
-        <div class="pricing__container__text">
-  				{{{content.extended}}}
-        </div>
-      {{/with}}
+    {{#with posts.[0]}}
+    <div class="pricing__container__text">
+      {{{content.brief}}}
+    </div>
+    {{/with}}
     {{/if}}
   </div>
 </div>
-<a href="contact">Reach out to me here</a>
+<div class="pricing-contact">
+  <p>FOR QUESTIONS OR INQUIRIES</p>
+  <a href="contact" class="nazeefa">CONTACT ME</a>
+</div>
+<div class="pricing">
+  <div class="pricing__container">
+    {{#if posts}}
+    {{#with posts.[0]}}
+    <div class="pricing__container__text">
+      {{{content.extended}}}
+    </div>
+    {{/with}}
+    {{/if}}
+  </div>
+</div>
 <div>
   <div class="pricing">
     <div class="pricing__container">
       <div>
-        {{>artwork img='/img/art1.png' class='rotate'}}
+        {{>artwork img='/img/boquet2.png' class='pricing-art'}}
       </div>
     </div>
   </div>

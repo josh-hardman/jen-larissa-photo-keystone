@@ -930,44 +930,44 @@ select{
     top: 0px;
     bottom: 0px;
     z-index: -10;
-    .display-flex();
-    .justify-content(center);
-    align-items: flex-end;
-    flex-wrap: wrap;
+    // .display-flex();
+    // .justify-content(center);
+    // align-items: flex-end;
+    // flex-wrap: wrap;
   }
   &__background--open {
     transform: translateX(0%);
   }
   &__logo{
-    position: absolute;
-    top: 5px;
+    height: 20vh;
     .display-flex();
     .justify-content(center);
+    .align-items(center);
     & img {
-      width: 90%;
-      height: 40%;
+      width: 60%;
     }
   }
   &__list {
+    height: 50vh;
     .display-flex();
-    flex-wrap: wrap;
-    width: 80%;
-    height: 40%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     &__item p {
-      transition: all .5s;
+      transition: all .5s;;
     }
     &__item {
       transition: all .5s;
-      width: 100%;
-      .display-flex();
-      flex-direction: column;
-      .justify-content(center);
-      .align-items(center);
+      // width: 100%;
+      // .display-flex();
+      // flex-direction: column;
+      // .justify-content(center);
+      // .align-items(center);
       & p {
         color: rgba(0,0,0,.4);
         text-decoration: none;
-        font-size: 2.1em;
-        margin: 15px;
+        font-size: 1.8em;
+        line-height: 0;
       }
       &:hover {
         transform: scale(1.1);
@@ -976,6 +976,12 @@ select{
         color: black;
       }
     }
+  }
+  &__footer {
+    height: 30vh;
+    .display-flex();
+    .align-items(center);
+    .justify-content(center);
   }
 }
 
@@ -1216,6 +1222,16 @@ a:link, a:visited, a:hover, a:active {
   }
 }
 
+.pricing-art {
+  .display-flex();
+  .justify-content(center);
+  .align-items(center);
+  width: 100%;
+  @media screen and (min-width: 700px) {
+    width: 50%;
+  }
+}
+
 .rotate {
   transform: rotateZ(90deg);
 }
@@ -1233,4 +1249,29 @@ h1 {
 
 strong, b {
     font-family: serif;
+}
+
+.pricing-contact {
+  background-color: rgb(250,217,225);
+  width: 100%;
+  height: 140px;
+  margin: 50px 0;
+  .display-flex;
+  .justify-content(center);
+  .align-items(center);
+    p, a {
+      margin: 0 10px;
+      padding: 0;
+    }
+    a {
+      font-size: 4em;
+      line-height: 40px;
+      padding-top: 15px;
+      transition: all .5s;
+      opacity: .6;
+    }
+    a:hover {
+      transform: scale(1.05);
+      opacity: 1;
+    }
 }
