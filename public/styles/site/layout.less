@@ -687,8 +687,12 @@ img {
 }
 
 .blog {
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 0;
+  padding-right: 0;
+  @media (min-width: 580px) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
   .display-flex();
   margin: 50px 0;
   .justify-content(center);
@@ -725,9 +729,13 @@ img {
       width: 100%
     }
     &__border {
+      border-left: 0;
+      border-right: 0;
       border-bottom: 5px solid white;
-      border-left: 5px solid white;
-      border-right: 5px solid white;
+      @media (min-width: 580px) {
+        border-left: 5px solid white;
+        border-right: 5px solid white;
+      }
     }
   }
 }
