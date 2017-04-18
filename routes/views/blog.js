@@ -23,7 +23,6 @@ exports = module.exports = function (req, res) {
 		var q = keystone.list('Gallery').model.find();
 
 		q.exec(function (err, results) {
-			console.log(results)
 			locals.data.sessions = results;
 			next(err);
 		});
@@ -43,29 +42,5 @@ exports = module.exports = function (req, res) {
 			).sort('sortOrder'));
 			view.render('posts');
     });
-
-	// Render the view
-
-  //
-	// Gallery.model.find()
-	// 	.where('key', key)
-  //   .exec(function(err, session) {
-  //
-  //     console.log(session);
-  //
-	// 		// var id = category[0]._id;
-	// 		// console.log(id);
-	// 		view.query('galleries', keystone.list('Gallery').model.find(
-	// 			// {
-	// 			// 	categories: ObjectID(id)
-	// 			// }
-	// 		).sort('sortOrder'));
-	// 		view.render('sessions');
-  //   });
-
-	// Load the galleries by sortOrder
-
-
-	// Render the view
 
 };

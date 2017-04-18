@@ -497,12 +497,13 @@ h1{
 .menu-S-nav {
   position: absolute;
   right: 0;
-  .display-flex();
-  width: 50%;
+  width: 100%;
 }
 
 .menu-S-option {
-    margin: 1em;
+  display: block;
+  float: right;
+  margin: 2%;
 }
 
 .navlink-B {
@@ -621,7 +622,7 @@ h1{
       margin-bottom: 40px;
     }
     &__date {
-      opacity: .8;
+      // opacity: .8;
     }
     // @media (min-width:580px) {
     //   :hover .photo-overlay {
@@ -680,7 +681,6 @@ img {
 
 .nav-wrap {
   margin-bottom: 0px;
-  // position: relative;
   @media screen and (min-width: 580px) {
     margin-bottom: 65px;
   }
@@ -700,7 +700,7 @@ img {
     }
     &__date {
       margin-bottom: 10px;
-      opacity: .8;
+      // opacity: .8;
     }
     &__title {
       margin-bottom: 20px;
@@ -918,6 +918,7 @@ select{
   transition: all .5s;
   display: inline-block;
   position: fixed;
+  top: 0;
   &__background {
     transition: all .5s;
     height: 100vh;
@@ -994,6 +995,9 @@ a:link, a:visited, a:hover, a:active {
   }
   .mobile-nav {
     display: none;
+    position: fixed;
+    top:0;
+    left:0;
   }
 }
 
@@ -1034,7 +1038,7 @@ a:link, a:visited, a:hover, a:active {
     opacity: 0;
     transform: rotateZ(-90deg);
     &__bar {
-      position: absolute;
+      // position: absolute;
       height: 2px;
       width: 65%;
       background-color: black;

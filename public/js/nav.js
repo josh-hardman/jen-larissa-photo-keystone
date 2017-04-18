@@ -21,7 +21,7 @@ var closeMobileNav = () => {
 }
 
 $( document ).ready( () => {
-  $('.nav-toggle').click( () => {
+  $('.mobile-nav').click( () => {
     !mobileOpen ? openMobileNav() : closeMobileNav()
   })
 })

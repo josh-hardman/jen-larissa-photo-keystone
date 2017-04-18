@@ -27,7 +27,6 @@ exports = module.exports = function (req, res) {
     );
 
 		q.exec(function (err, results) {
-      console.log(results);
 			locals.data.sessions = results;
 			next(err);
 		});
