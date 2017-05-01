@@ -1,6 +1,12 @@
 var keystone = require('keystone');
 var Enquiry = keystone.list('Enquiry');
 var ObjectID = require('mongodb').ObjectID;
+var Email = require('keystone-email');
+// var hbs = require('hbs');
+
+// templateLocals.layout = false;
+
+
 
 exports = module.exports = function (req, res) {
 
@@ -14,8 +20,22 @@ exports = module.exports = function (req, res) {
 	locals.validationErrors = {};
 	locals.enquirySubmitted = false;
 
+
+
 	// On POST requests, add the Enquiry item to the database
 	view.on('post', { action: 'contact' }, function (next) {
+
+		var nodemailer = require('nodemailer');
+		var mg = require('nodemailer-mailgun-transport');
+
+		var auth = {
+			auth: {
+			  api_key: 'key-5ef048f07e34a7ef454ba57e48866c1e',
+			  domain: 'jenlarissaphoto.com'
+			}
+		}
+
+		var nodemailerMailgun = nodemailer.createTransport(mg(auth));
 
 		var newEnquiry = new Enquiry.model();
 		var updater = newEnquiry.getUpdateHandler(req);
@@ -28,6 +48,19 @@ exports = module.exports = function (req, res) {
 			if (err) {
 				locals.validationErrors = err.errors;
 			} else {
+				nodemailerMailgun.sendMail({
+					from: 'mailgun@jenlarissaphoto.com',
+					to: 'jenlarissaphoto@gmail.com', // An array if you have multiple recipients.
+					subject: 'Hey you, awesome!',
+					text: 'Mailgun rocks, pow pow!',
+					}, function (err, info) {
+					if (err) {
+					  console.log('Error: ' + err);
+					}
+					else {
+					  console.log('Response: ' + info);
+					}
+				});
 				locals.enquirySubmitted = true;
 			}
 			next();
