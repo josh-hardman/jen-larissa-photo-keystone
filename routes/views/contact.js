@@ -43,16 +43,16 @@ exports = module.exports = function (req, res) {
 		updater.process(req.body, {
 			flashErrors: true,
 			fields: 'name, email, phone, enquiryType, message',
-			errorMessage: 'There was a problem submitting your enquiry:',
+			errorMessage: 'There was a problem submitting your inquiry:',
 		}, function (err) {
 			if (err) {
 				locals.validationErrors = err.errors;
 			} else {
 				nodemailerMailgun.sendMail({
-					from: 'mailgun@jenlarissaphoto.com',
+					from: locals.formData.email,
 					to: 'jenlarissaphoto@gmail.com', // An array if you have multiple recipients.
-					subject: 'Hey you, awesome!',
-					text: 'Mailgun rocks, pow pow!',
+					subject: locals.formData["name.full"] + ' inquiry',
+					text: locals.formData.message,
 					}, function (err, info) {
 					if (err) {
 					  console.log('Error: ' + err);
